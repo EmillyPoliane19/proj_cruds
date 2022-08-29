@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import Prof
 from .forms import ProfForm
 
@@ -42,4 +42,16 @@ def remover_prof(request, id):
     professor.delete()
     return redirect('listar_prof')
 
+def upload_prof(request):
+    if request.method == 'POST':
+        form = ProfForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_prof')
+    else:
+        form = ProfForm()
+        context = {
+            'form_prof': form,
+        }
+    return render(request, 'cadastro_prof(Gustavo).html', context)
 
