@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import editar_prof, listar_prof, cadastrar_prof, remover_prof
+from core.views import editar_prof, listar_prof, cadastrar_prof, remover_prof, cursos_cadastrar
 
 urlpatterns = [
+    path ('cursos_cadastrar', cursos_cadastrar, name='cursos_cadastrar'),
     path('cadastrarprof/', cadastrar_prof, name='cadastrar_prof'),
     path('listarprof/', listar_prof, name='listar_prof'),
     path('editarprof/<int:id>/', editar_prof, name='editar_prof'),
