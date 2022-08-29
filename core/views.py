@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Prof
-from .forms import ProfForm
-from .models import Aluno
+from .models import Prof,Aluno
+from .forms import ProfForm, AlunoForm
+
+
 
 
 #CRUD DOS PROFESSORES
@@ -48,10 +49,36 @@ def remover_prof(request, id):
 def listar_aluno(request):
     alunos = Aluno.objects.all()
     contexto = {
-        'todos_alunos':alunos
+        'todos_alunos': alunos
     }
     return render(request,'cadastro_alunos.html', contexto)
 
 def cadastrar_aluno(request):
-    return render(request, 'cadastrar_aluno.html')
+    form = AlunoForm(request.POST or None)
 
+    if form.is_valid():
+        form.save()
+        return redirect('listar_aluno')
+
+    contexto = {
+        'form_aluno': form
+    }
+    return render(request, 'cadastrar_aluno.html', contexto)
+
+def editar_aluno(request, id):
+    aluno = Aluno.objects.get(pk=id)
+    form = AlunoForm(request.POST or None, instance=aluno)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_aluno')
+
+    contexto = {
+        'form_aluno': form
+    }
+    return render(request, 'cadastrar_aluno.html', contexto)
+
+def remover_aluno(request,id):
+    aluno = Aluno.objects.get(pk=id)
+    aluno.delete()
+    return redirect('listar_aluno')
