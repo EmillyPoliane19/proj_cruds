@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Alunos</h1>
+    {% for aluno in todos_alunos %}
+    <p>Nome Completo:{{aluno.nome}}</p>
+    {% empty %}
+    <p>Não Existem Alunos Cadastrados</p>
+    {% endfor%}
 </body>
 </html>
