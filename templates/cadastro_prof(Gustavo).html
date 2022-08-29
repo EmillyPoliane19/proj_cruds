@@ -53,9 +53,6 @@
     <form method="post">
         {% csrf_token %}
         {{form_prof}}
-        <p>{{ form.nome.label }}  {% render_field form.nome placeholder="Abreviado" class="cor" class="body" %}</p>
-        <p>{{form.data.label}}</p>
-        <p>{{form.materia.label}}</p>
         <p><input type="submit" value="Cadastrar"/></p>
     </form>
    
