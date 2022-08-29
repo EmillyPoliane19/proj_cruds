@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PROFESSORES</h1>
+    <p><a href="{% url 'cadastrar_prof' %}">Cadastrar</a></p>
+    <p>Lista de professores:</p>
+    {% for professores in todos_prof %}
+    <p>
+        Nome: {{professores.nome}} 
+        Data de nascimento: {{professores.data}} 
+        Matéria: {{professores.materia}}
+        <a href="{% url 'editar_prof' professores.id %}">EDITAR</a>
+        <a href="{% url 'remover_prof' professores.id %}">REMOVER</a>
+    </p>
+    {% empty %}
+    <p>Não há professores cadastrados</p>
+    {% endfor %}
+</body>
+</html>
