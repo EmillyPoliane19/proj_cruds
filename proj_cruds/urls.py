@@ -17,11 +17,16 @@ from django.contrib import admin
 from django.urls import path
 from core.views import editar_prof, listar_prof, cadastrar_prof, remover_prof, cursos_cadastrar
 
+
+
 urlpatterns = [
-    path ('cursos_cadastrar', cursos_cadastrar, name='cursos_cadastrar'),
+
+    path('cadastrar_aluno', cadastrar_aluno, name='cadastrar_aluno'),
+    path('alunos/', listar_aluno, name='listar_cursos'),
     path('cadastrarprof/', cadastrar_prof, name='cadastrar_prof'),
     path('listarprof/', listar_prof, name='listar_prof'),
     path('editarprof/<int:id>/', editar_prof, name='editar_prof'),
     path('removerprof/<int:id>/', remover_prof, name='remover_prof'),
+    path ('cursos_cadastrar', cursos_cadastrar, name='cursos_cadastrar'),
     path('admin/', admin.site.urls),
 ]
