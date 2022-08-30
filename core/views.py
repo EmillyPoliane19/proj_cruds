@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 from django.shortcuts import render, redirect, HttpResponse
 from .models import Prof
 from .forms import ProfForm
 from .models import Aluno
+=======
+from django.shortcuts import render, redirect
+from .models import Prof,Aluno
+from .forms import ProfForm, AlunoForm
+
+
+>>>>>>> 9f5544340429bd6f3f1be3a0b3b3e2948466df3a
 
 
 #CRUD DOS PROFESSORES
@@ -61,10 +69,38 @@ def upload_prof(request):
 def listar_aluno(request):
     alunos = Aluno.objects.all()
     contexto = {
-        'todos_alunos':alunos
+        'todos_alunos': alunos
     }
     return render(request,'cadastro_alunos.html', contexto)
 
 def cadastrar_aluno(request):
-    return render(request, 'cadastrar_aluno.html')
+    form = AlunoForm(request.POST or None)
 
+    if form.is_valid():
+        form.save()
+        return redirect('listar_aluno')
+
+    contexto = {
+        'form_aluno': form
+    }
+    return render(request, 'cadastrar_aluno.html', contexto)
+
+def editar_aluno(request, id):
+    aluno = Aluno.objects.get(pk=id)
+    form = AlunoForm(request.POST or None, instance=aluno)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_aluno')
+
+    contexto = {
+        'form_aluno': form
+    }
+    return render(request, 'cadastrar_aluno.html', contexto)
+
+def remover_aluno(request,id):
+    aluno = Aluno.objects.get(pk=id)
+    aluno.delete()
+    return redirect('listar_aluno')
+
+#CRUD CURSOS

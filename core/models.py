@@ -15,4 +15,3 @@ class Aluno(models.Model):
    nome = models.CharField('Nome', max_length=100)
    data = models.DateField('Data de Nascimento')
    ano  = models.IntegerField('Ano Letivo')
-   materia = models.CharField('Matérias', max_length=100)
