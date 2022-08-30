@@ -1,3 +1,4 @@
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +77,10 @@
             </div>
           </div>
       </div>
-
+      
+      {% empty %}
+      <p>Não Existem Alunos Cadastrados</p>
+      {% endfor %}
 
 
 
