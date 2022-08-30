@@ -1,16 +1,6 @@
-<<<<<<< HEAD
-from django.shortcuts import render, redirect, HttpResponse
-from .models import Prof
-from .forms import ProfForm
-from .models import Aluno
-=======
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,  HttpResponse
 from .models import Prof,Aluno
 from .forms import ProfForm, AlunoForm
-
-
->>>>>>> 9f5544340429bd6f3f1be3a0b3b3e2948466df3a
-
 
 #CRUD DOS PROFESSORES
 def listar_prof(request):
