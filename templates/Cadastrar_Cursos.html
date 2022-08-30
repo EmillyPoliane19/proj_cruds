@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colégio Aristóteles </title>
+    <style type="test/css">
+      .cor{
+          background-color: yellow;
+      }
+  </style>
 </head>
 <body>
     <nav class="navbar navbar-dark fixed-top " style="background-color: #A4A4A4; border: #6d6d6d;">
@@ -40,6 +45,14 @@
           </div>
         </div>
       </nav>
-    
+    <h1>Cursos oferecidos: </h1>
+
+<form method="post">
+    {% csrf_token %}
+    <p>{{form.titulo.label}} {% render_field form.titulo  placeholder="Abreviado" class="cor" %}</p>
+    <p>{{form.vagas.label}} {% render_field form.vagas %}</p>
+   
+    <button type="submit">Salvar</button>
+</form>
 </body>
 </html>

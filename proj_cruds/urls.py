@@ -27,6 +27,6 @@ urlpatterns = [
     path('listarprof/', listar_prof, name='listar_prof'),
     path('editarprof/<int:id>/', editar_prof, name='editar_prof'),
     path('removerprof/<int:id>/', remover_prof, name='remover_prof'),
-    path ('cursos_cadastrar', cursos_cadastrar, name='cursos_cadastrar'),
+    path ('cursos_cadastrar/', cursos_cadastrar, name='cursos_cadastrar'),
     path('admin/', admin.site.urls),
 ]
