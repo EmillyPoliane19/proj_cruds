@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect,  HttpResponse
-from .models import Prof,Aluno
-from .forms import ProfForm, AlunoForm
+from cgitb import reset
+from django.shortcuts import render, redirect
+from .models import Prof, Aluno, Curso
+from .forms import ProfForm, AlunoForm,CursosForm
 
 #CRUD DOS PROFESSORES
 def listar_prof(request):
@@ -65,7 +66,6 @@ def listar_aluno(request):
 
 def cadastrar_aluno(request):
     form = AlunoForm(request.POST or None)
-
     if form.is_valid():
         form.save()
         return redirect('listar_aluno')
@@ -94,3 +94,13 @@ def remover_aluno(request,id):
     return redirect('listar_aluno')
 
 #CRUD CURSOS
+
+def cursos_cadastrar (request):
+    form = CursosForm (request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('cursos_cadastrar')
+    contexto = {
+      'form_curso': form 
+    }
+    return render (request,'Cadastrar_Cursos.html', contexto)
