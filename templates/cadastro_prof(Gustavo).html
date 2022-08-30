@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="Custom.css"> 
 </head>
 <body>
+
+     
      <!--Navbar Responsivo Bootstrap-->
   <nav class="navbar navbar-dark fixed-top " style="background-color: #A4A4A4; border: #6d6d6d;">
     <div class="container-fluid">
@@ -50,7 +52,7 @@
 <!--Conteúdo-->    
     <h1>CADASTRO DE
         PROFESSORES</h1>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{form_prof}}
         <p><input type="submit" value="Cadastrar"/></p>

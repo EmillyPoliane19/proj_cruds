@@ -1,9 +1,7 @@
 from cgitb import reset
 from django.shortcuts import render, redirect
-from .models import Prof
-from .forms import ProfForm
-from .models import Aluno
-from .forms import CursosForm
+from .models import Prof, Aluno, Curso
+from .forms import ProfForm, AlunoForm,CursosForm
 
 #CRUD DOS PROFESSORES
 def listar_prof(request):
@@ -45,18 +43,57 @@ def remover_prof(request, id):
     professor.delete()
     return redirect('listar_prof')
 
+def upload_prof(request):
+    if request.method == 'POST':
+        form = ProfForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_prof')
+    else:
+        form = ProfForm()
+        context = {
+            'form_prof': form,
+        }
+    return render(request, 'cadastro_prof(Gustavo).html', context)
+    
 #CRUD DOS ALUNOS
 def listar_aluno(request):
     alunos = Aluno.objects.all()
     contexto = {
-        'todos_alunos':alunos
+        'todos_alunos': alunos
     }
     return render(request,'cadastro_alunos.html', contexto)
 
 def cadastrar_aluno(request):
-    return render(request, 'cadastrar_aluno.html')
+    form = AlunoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_aluno')
 
-#CUROSOS E CADASTRO DE CURSOS 
+    contexto = {
+        'form_aluno': form
+    }
+    return render(request, 'cadastrar_aluno.html', contexto)
+
+def editar_aluno(request, id):
+    aluno = Aluno.objects.get(pk=id)
+    form = AlunoForm(request.POST or None, instance=aluno)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_aluno')
+
+    contexto = {
+        'form_aluno': form
+    }
+    return render(request, 'cadastrar_aluno.html', contexto)
+
+def remover_aluno(request,id):
+    aluno = Aluno.objects.get(pk=id)
+    aluno.delete()
+    return redirect('listar_aluno')
+
+#CRUD CURSOS
 
 def cursos_cadastrar (request):
     form = CursosForm (request.POST or None)
@@ -67,4 +104,3 @@ def cursos_cadastrar (request):
       'form_curso': form 
     }
     return render (request,'Cadastrar_Cursos.html', contexto)
-
