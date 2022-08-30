@@ -82,3 +82,5 @@ def remover_aluno(request,id):
     aluno = Aluno.objects.get(pk=id)
     aluno.delete()
     return redirect('listar_aluno')
+
+#CRUD CURSOS
