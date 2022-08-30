@@ -45,9 +45,24 @@
     </div>
   </nav>
   <main>
-    <h4>Alunos Matriculados no Servidor</h4>
+    <h1>Alunos</h1>
+    <p><a href="{% url 'cadastrar_aluno' %}">Cadastrar</a></p>
+    
     {% for aluno in todos_alunos %}
+        <p>
+        Nome Completo:{{aluno.nome}}
+        Data de Nascimento: {{aluno.data}}
+        Ano Letivo {{aluno.ano}}
+        </p>
+        <a href="{% url 'editar_aluno' aluno.id %}">Editar</a>
+        <a href="{% url 'remover_aluno' aluno.id %}">Remover</a>
+
+    {% empty %}
+    <p>Não Existem Alunos Cadastrados</p>
+    {% endfor %}
+    <!--<h4>Alunos Matriculados no Servidor</h4>
     <div class="row">
+      {% for aluno in todos_alunos %}
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
@@ -77,11 +92,12 @@
             </div>
           </div>
       </div>
-      
+
       {% empty %}
       <p>Não Existem Alunos Cadastrados</p>
       {% endfor %}
-
+-->
+    
 
 
   </main>

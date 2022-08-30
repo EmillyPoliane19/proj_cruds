@@ -1,7 +1,7 @@
 from cgitb import reset
 from django.shortcuts import render, redirect
 from .models import Prof, Aluno, Curso
-from .forms import ProfForm, AlunoForm,CursosForm
+from .forms import ProfForm, AlunoForm, CursosForm
 
 #CRUD DOS PROFESSORES
 def listar_prof(request):
@@ -77,6 +77,7 @@ def cadastrar_aluno(request):
 
 def editar_aluno(request, id):
     aluno = Aluno.objects.get(pk=id)
+    
     form = AlunoForm(request.POST or None, instance=aluno)
 
     if form.is_valid():
