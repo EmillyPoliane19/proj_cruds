@@ -1,8 +1,9 @@
+from cgitb import reset
 from django.shortcuts import render, redirect
 from .models import Prof
 from .forms import ProfForm
 from .models import Aluno
-
+from .forms import CursosForm
 
 #CRUD DOS PROFESSORES
 def listar_prof(request):
@@ -54,4 +55,16 @@ def listar_aluno(request):
 
 def cadastrar_aluno(request):
     return render(request, 'cadastrar_aluno.html')
+
+#CUROSOS E CADASTRO DE CURSOS 
+
+def cursos_cadastrar (request):
+    form = CursosForm (request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('cursos_cadastrar')
+    contexto = {
+      'form_curso': form 
+    }
+    return render (request,'Cadastrar_Cursos.html', contexto)
 

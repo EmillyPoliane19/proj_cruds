@@ -1,5 +1,6 @@
 from django.forms import ModelForm
-from .models import Prof, Curso 
+from .models import Prof, Curso
+
 
 
 class ProfForm(ModelForm):
