@@ -15,12 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-<<<<<<< HEAD
 from django.conf.urls.static import static
-from core.views import editar_prof, listar_prof, cadastrar_prof, remover_prof, upload_prof, listar_aluno, cadastrar_aluno, editar_aluno, remover_aluno, cursos_cadastrar
-=======
 from core.views import home,editar_prof, listar_prof, cadastrar_prof, remover_prof, upload_prof, listar_aluno, cadastrar_aluno, editar_aluno, remover_aluno, cursos_cadastrar
->>>>>>> 09c043efb1729d9f5333d78e82ce85facb79100f
+
 
 urlpatterns = [
     path('home/', home, name='home' ),

@@ -6,6 +6,7 @@ from .forms import ProfForm, AlunoForm, CursosForm
 
 def home(request):
     return render(request, 'pagina_inicial.html')
+    
 #CRUD DOS PROFESSORES
 def listar_prof(request):
     professores = Prof.objects.all()
