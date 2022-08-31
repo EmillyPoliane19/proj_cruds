@@ -1,8 +1,11 @@
 from cgitb import reset
+from http.client import HTTPResponse
 from django.shortcuts import render, redirect
 from .models import Prof, Aluno, Curso
 from .forms import ProfForm, AlunoForm, CursosForm
 
+def home(request):
+    return render(request, 'pagina_inicial.html')
 #CRUD DOS PROFESSORES
 def listar_prof(request):
     professores = Prof.objects.all()
