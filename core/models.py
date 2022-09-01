@@ -8,8 +8,8 @@ class Prof(models.Model):
 
 class Curso(models.Model):
    nome = models.CharField('Nome', max_length=100)
-   vagas= models.IntegerField('vagas', )
-   hora =  models.DateTimeField('hora', )
+   vagas = models.IntegerField('vagas')
+   hora = models.IntegerField('hora')
 
 class Aluno(models.Model):
    nome = models.CharField('Nome', max_length=100)

@@ -36,7 +36,7 @@
     <!--Navbar Responsivo Bootstrap-->
   <nav class="navbar navbar-dark fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand " href="http://127.0.0.1:8000/home/">
+      <a class="navbar-brand " href="{% url 'home'%}">
         <img src="{% static 'imagens/logonavbar.png' %}" alt="logo" width="60px" height="60px">
         Colégio Aristóteles
       </a>
@@ -51,10 +51,10 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/home/">🏛️ Home</a>
+              <a class="nav-link" aria-current="page" href="{% url 'home' %}">🏛️ Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/home/#sobre_nos">🏛️ Sobre Nós</a>
+              <a class="nav-link" aria-current="page" href="{% url 'home'%}#sobre_nos">🏛️ Sobre Nós</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://chat.whatsapp.com/DFJmUGRkSsfIhPtc677cQ1">🏛️ Contato</a>

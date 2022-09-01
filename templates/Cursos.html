@@ -1,25 +1,87 @@
 {% load widget_tweaks %}
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colégio Aristóteles</title>
+    <title>Cursos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Custom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cust2.css' %}">
 </head>
 <body>
-    <h1>Cursos</h1>
-
-    <p><a href="{% url 'curso_cadastro'%}">Cadastrar novo Curso</a></p>
+    <!--Navbar Responsivo Bootstrap-->
+  <nav class="navbar navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand " href="{% url 'home'%}">
+        <img src="{% static 'imagens/logonavbar.png' %}" alt="logo" width="60px" height="60px">
+        Colégio Aristóteles
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDarkNavbar">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Colégio Aristóteles</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'home'%}">🏛️ Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'home'%}#sobre_nos">🏛️ Sobre Nós</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://chat.whatsapp.com/DFJmUGRkSsfIhPtc677cQ1">🏛️ Contato</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/colegio_aristoteles/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1">🏛️ Redes Sociais</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+    <main>
+        <h4>Cursos Cadastrados no Servidor </h4>
+        <p id="btn_cadastro"><a href="{% url 'cursos_cadastrar' %}">
+          <button type="button" class="btn btn-outline-warning">Cadastrar Curso</button>
+        </a></p>
+        <div class="row_aluno">
+            {% for curso in todos_cursos %}
+            <div class="col">
+              <div class="card_2 w-75">
+                <div class="card-body">
+                  <h5 class="card-title">Curso Cadastrado:</h5>
+                  <p class="card-text">
+                    <img  class="img-fluid" src="{% static 'imagens/Class.svg' %}" alt="Curso" >
+                    <p>Curso: {{curso.nome}}</p>
+                    <p>Vagas: {{curso.vagas}}</p>
+                    <p>Carga Horária: {{curso.hora}} hs.</p>
+                    <a href="{% url 'editar_curso' curso.id %}">
+                      <button type="button" class="btn btn-outline-info">Editar</button>
+                    </a>
+                    <a href="{% url 'remover_curso' curso.id %}">
+                        <button type="button" class="btn btn-outline-danger">Remover</button>
+                    </a>
+                </div>
+              </div>
+            </div>
+          <p id="espaçamento"></p>
+          {% empty %}
+          <div class="alert alert-warning" role="alert">
+            Não Existem Cursos Cadastrados!
+          </div>
+          {% endfor %}
     
-    <p>Lista de Cursos Cadastrados</p>
-    {% for curso in lista_cursos %}
-        <p>{{curso.titulo}} -{{curso.vagas}} |
-        <a href="{% url 'curso_editar' curso.id %}">EDITAR</a>
-        <a href="{% url 'curso_remover' curso.id %}">DELETAR</a></p>
-    {% empty %}
-    <p>Nenhum curso cadastrado</p>
-    {% endfor %}
+      </main>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>     
 </body>
 </html>

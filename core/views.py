@@ -99,13 +99,38 @@ def remover_aluno(request,id):
     return redirect('listar_aluno')
 
 #CRUD CURSOS
+def listar_cursos(request):
+    cursos = Curso.objects.all()
+    contexto = {
+        'todos_cursos': cursos
+    }
+    return render(request,'Cursos.html', contexto)
 
 def cursos_cadastrar (request):
     form = CursosForm (request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('cursos_cadastrar')
+        return redirect('listar_cursos')
     contexto = {
       'form_curso': form 
     }
     return render (request,'Cadastrar_Cursos.html', contexto)
+
+def editar_curso(request, id):
+    curso = Curso.objects.get(pk=id)
+    
+    form = CursoForm(request.POST or None, instance=curso)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listar_cursos')
+
+    contexto = {
+        'form_curso': form
+    }
+    return render(request, 'cadastrar_Cursos.html', contexto)
+
+def remover_curso(request,id):
+    curso = Curso.objects.get(pk=id)
+    curso.delete()
+    return redirect('listar_cursos')
