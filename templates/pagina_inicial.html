@@ -15,8 +15,8 @@
   <!--Navbar Responsivo Bootstrap-->
   <nav class="navbar navbar-dark fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand " href="#">
-        <img src="{% static 'imagens/logonavbar.png' %}" alt="" width="60px" height="60px">
+      <a class="navbar-brand " href="http://127.0.0.1:8000/home/">
+        <img src="{% static 'imagens/logonavbar.png' %}" alt="logonavbar" width="60px" height="60px">
         Colégio Aristóteles
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
@@ -30,7 +30,7 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'home' %">🏛️ Home</a>
+              <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/home/">🏛️ Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="#sobre_nos">🏛️ Sobre Nós</a>
@@ -56,7 +56,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 col-12">
           <div class="card" style="width: 18rem;">
             <a href="http://127.0.0.1:8000/listarprof">
-            <img src="{% static 'imagens/Professora.svg' %}" class="card-img-top" alt="...">
+            <img src="{% static 'imagens/Professora.svg' %}" class="card-img-top" alt="Professores">
             </a>
             <div class="card-body">
             <p class="card-text">Professores</p>
@@ -66,7 +66,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 col-12">
           <div class="card" style="width: 18rem;">
             <a href="http://127.0.0.1:8000/alunos/">
-            <img src="{% static 'imagens/Aluno.svg' %}" class="card-img-top" alt="...">
+            <img src="{% static 'imagens/Aluno.svg' %}" class="card-img-top" alt="Alunos">
             </a>
             <div class="card-body">
             <p class="card-text">Alunos</p>
@@ -76,7 +76,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 col-12">
           <div class="card" style="width: 18rem;">
             <a href="http://127.0.0.1:8000/cursos_cadastrar/">
-            <img src="{% static 'imagens/Curso.svg' %}" class="card-img-top" alt="logoCS">
+            <img src="{% static 'imagens/Curso.svg' %}" class="card-img-top" alt="Cursos">
             </a>
             <div class="card-body">
             <p class="card-text">Cursos</p>

@@ -5,7 +5,7 @@ from .models import Prof, Aluno, Curso
 from .forms import ProfForm, AlunoForm, CursosForm
 
 def home(request):
-    return render(request, 'pagina_inicial.html')
+    return render(request,'pagina_inicial.html')
     
 #CRUD DOS PROFESSORES
 def listar_prof(request):

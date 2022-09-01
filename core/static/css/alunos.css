@@ -1,0 +1,33 @@
+h4 {
+    text-align: center;
+    color: white;
+}
+.img-fluid{
+    width: 30rem;
+}
+.card_aluno{
+    background-color:#3e4857 ;
+    margin: 0 auto; 
+    text-align: center;
+    padding-bottom: 15px;
+}
+.card-title {
+    color: white;
+}
+.card-body{
+    color: #ffe9a6;
+    
+}
+#btn_cadastro{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0 auto; 
+    text-align: center;
+}
+
+#espaçamento{
+    padding-bottom: 20px;
+}
+.alert{
+    text-align: center;
+}
