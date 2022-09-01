@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
 from django.conf.urls.static import static
-from core.views import home, editar_prof, listar_prof, cadastrar_prof, remover_prof, upload_prof, listar_aluno, cadastrar_aluno, editar_aluno, remover_aluno, cursos_cadastrar
+from core.views import home, editar_prof, listar_prof, cadastrar_prof, remover_prof, listar_aluno, cadastrar_aluno, editar_aluno, remover_aluno, cursos_cadastrar
 
 
 urlpatterns = [
@@ -29,9 +30,8 @@ urlpatterns = [
     path('listarprof/', listar_prof, name='listar_prof'),
     path('editarprof/<int:id>/', editar_prof, name='editar_prof'),
     path('removerprof/<int:id>/', remover_prof, name='remover_prof'),
-    path('uploadprof/', upload_prof, name='upload_prof'),
     path ('cursos_cadastrar/', cursos_cadastrar, name='cursos_cadastrar'),
     path('admin/', admin.site.urls),
    
-] 
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

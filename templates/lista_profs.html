@@ -79,7 +79,8 @@
         Nome: {{professores.nome}} 
         Data de nascimento: {{professores.data}} 
         Matéria: {{professores.materia}}
-        Foto: {{professores.imagem}}
+        <img src="/media/{{professores.foto}}" alt="" width="100px"
+        height="100px"/>
         <a href="{% url 'editar_prof' professores.id %}">EDITAR</a>
         <a href="{% url 'remover_prof' professores.id %}">REMOVER</a>
     </p>
