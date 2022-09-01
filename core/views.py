@@ -30,7 +30,7 @@ def cadastrar_prof(request):
 def editar_prof(request, id):
     professor = Prof.objects.get(pk=id)
     
-    form = ProfForm(request.POST or None, instance=professor)
+    form = ProfForm(request.POST or None, request.FILES or None ,instance=professor)
    
     if form.is_valid():
         form.save()
