@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
 from django.conf.urls.static import static
-from core.views import home, editar_prof, listar_prof, cadastrar_prof, remover_prof, upload_prof, listar_aluno, cadastrar_aluno, editar_aluno, remover_aluno, listar_cursos, cursos_cadastrar, editar_curso, remover_curso
+from core.views import home, editar_prof, listar_prof, cadastrar_prof, remover_prof, listar_aluno, cadastrar_aluno, editar_aluno, remover_aluno, listar_cursos, cursos_cadastrar, editar_curso, remover_curso
+
 
 
 urlpatterns = [
@@ -34,7 +36,6 @@ urlpatterns = [
     path('listarprof/', listar_prof, name='listar_prof'),
     path('editarprof/<int:id>/', editar_prof, name='editar_prof'),
     path('removerprof/<int:id>/', remover_prof, name='remover_prof'),
-    path('uploadprof/', upload_prof, name='upload_prof'),
 
     #url das pag. das pag cursos
     path('lista_cursos/', listar_cursos, name='listar_cursos'),
@@ -46,5 +47,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
    
-] 
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -16,7 +16,7 @@ def listar_prof(request):
     return render(request, 'lista_profs.html', contexto)
 
 def cadastrar_prof(request):
-    form = ProfForm(request. POST or None)
+    form = ProfForm(request. POST or None, request.FILES or None)
     
     if form.is_valid():
         form.save()
@@ -25,7 +25,7 @@ def cadastrar_prof(request):
     contexto = {
         'form_prof': form
     }
-    return render(request, 'cadastro_prof(Gustavo).html', contexto)
+    return render(request, 'cadastro_prof.html', contexto)
 
 def editar_prof(request, id):
     professor = Prof.objects.get(pk=id)
@@ -40,26 +40,13 @@ def editar_prof(request, id):
         'form_prof': form
     }
 
-    return render(request, 'cadastro_prof(Gustavo).html', contexto)
+    return render(request, 'cadastro_prof.html', contexto)
 
 def remover_prof(request, id):
     professor = Prof.objects.get(pk=id)
     professor.delete()
     return redirect('listar_prof')
 
-def upload_prof(request):
-    if request.method == 'POST':
-        form = ProfForm(request.POST,request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('listar_prof')
-    else:
-        form = ProfForm()
-        context = {
-            'form_prof': form,
-        }
-    return render(request, 'cadastro_prof(Gustavo).html', context)
-    
 #CRUD DOS ALUNOS
 def listar_aluno(request):
     alunos = Aluno.objects.all()

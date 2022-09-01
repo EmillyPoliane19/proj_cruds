@@ -4,7 +4,7 @@ class Prof(models.Model):
    nome = models.CharField('Nome', max_length=100)
    data = models.DateField('Data de nascimento')
    materia = models.CharField('Matéria', max_length=100)
-   image = models.ImageField(blank=True, upload_to='images')
+   foto = models.ImageField('Foto', upload_to='upload', null=True)
 
 class Curso(models.Model):
    nome = models.CharField('Nome', max_length=100)
