@@ -25,7 +25,7 @@ def cadastrar_prof(request):
     contexto = {
         'form_prof': form
     }
-    return render(request, 'cadastro_prof(Gustavo).html', contexto)
+    return render(request, 'cadastro_prof.html', contexto)
 
 def editar_prof(request, id):
     professor = Prof.objects.get(pk=id)
@@ -40,7 +40,7 @@ def editar_prof(request, id):
         'form_prof': form
     }
 
-    return render(request, 'cadastro_prof(Gustavo).html', contexto)
+    return render(request, 'cadastro_prof.html', contexto)
 
 def remover_prof(request, id):
     professor = Prof.objects.get(pk=id)
