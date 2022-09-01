@@ -5,7 +5,7 @@ h4 {
 .img-fluid{
     width: 30rem;
 }
-.card_aluno{
+.card_2{
     background-color:#3e4857 ;
     margin: 0 auto; 
     text-align: center;
@@ -16,6 +16,7 @@ h4 {
 }
 .card-body{
     color: #ffe9a6;
+    padding-top: 15px;
     
 }
 #btn_cadastro{
