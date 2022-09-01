@@ -1,0 +1,32 @@
+.titulo {
+    margin: 0 auto; 
+    text-align: center;
+    color: #ffe9a6;
+    padding-bottom: 20px;
+  }  
+
+  form{
+    margin: 0 auto; 
+    text-align: center;
+    color: white;
+  }
+  #imagem{
+    padding-top: 20px;
+    width: 30rem;
+    margin: 0 auto; 
+    text-align: center;
+  }
+
+.container{
+    margin: 0 auto;
+    color: white;
+}
+#form {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 30px;
+    padding:auto;
+}
+.card {
+    size: 30rem;
+}
