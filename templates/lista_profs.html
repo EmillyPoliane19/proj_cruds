@@ -1,4 +1,5 @@
 {% load widget_tweaks %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,44 +8,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colégio Aristóteles 🏛️ </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="Custom.css"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Custom.css' %}">   
 </head>
 <body>
-<!--Navbar Responsivo Bootstrap-->
-<nav class="navbar navbar-dark fixed-top " style="background-color: #A4A4A4; border: #6d6d6d;">
-    <div class="container-fluid">
-      <a class="navbar-brand " href="#">
-        <img src="logonavbar.png" alt="" width="60px" height="60px">
-        Colégio Aristóteles
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDarkNavbar" style="background-color: #A4A4A4; border: #6d6d6d;">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Colégio Aristóteles</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body" style="background-color:#282F39">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="pagina_inicial.html">🏛️ Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#sobre_nos">🏛️ Sobre Nós</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://chat.whatsapp.com/DFJmUGRkSsfIhPtc677cQ1">🏛️ Contato</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.instagram.com/colegio_aristoteles/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1">🏛️ Redes Sociais</a>
-            </li>
-          </ul>
+
+    <!--Navbar Responsivo Bootstrap-->
+    <nav class="navbar navbar-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand " href="#">
+          <img src="{% static 'imagens/logonavbar.png' %}" alt="" width="60px" height="60px">
+          Colégio Aristóteles
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDarkNavbar">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Colégio Aristóteles</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">🏛️ Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#sobre_nos">🏛️ Sobre Nós</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://chat.whatsapp.com/DFJmUGRkSsfIhPtc677cQ1">🏛️ Contato</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.instagram.com/colegio_aristoteles/?igshid=YmMyMTA2M2Y%3D&__coig_restricted=1">🏛️ Redes Sociais</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-
+    </nav>
 
 
     <h1>PROFESSORES</h1>

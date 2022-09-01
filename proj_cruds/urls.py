@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
-from core.views import home,editar_prof, listar_prof, cadastrar_prof, remover_prof, upload_prof, listar_aluno, cadastrar_aluno, editar_aluno, remover_aluno, cursos_cadastrar
+from core.views import home, editar_prof, listar_prof, cadastrar_prof, remover_prof, upload_prof, listar_aluno, cadastrar_aluno, editar_aluno, remover_aluno, cursos_cadastrar
 
 
 urlpatterns = [
